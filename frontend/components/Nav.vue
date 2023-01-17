@@ -68,7 +68,9 @@
               <el-dropdown-item>
                 <div class="flex">
                   <i class="el-icon-user-solid justify-center items-center" />
-                  <div>My Profile</div>
+                  <nuxt-link to="/profile">
+                    My Profile
+                  </nuxt-link>
                 </div>
               </el-dropdown-item>
             </el-menu-item>
@@ -76,7 +78,9 @@
               <el-dropdown-item index="settings">
                 <div class="flex">
                   <i class="el-icon-s-tools justify-center items-center" />
-                  <div>Settings</div>
+                  <nuxt-link to="/settings">
+                    Settings
+                  </nuxt-link>
                 </div>
               </el-dropdown-item>
             </el-menu-item>
@@ -84,7 +88,9 @@
               <el-dropdown-item index="change-password">
                 <div class="flex">
                   <i class="el-icon-s-open justify-center items-center" />
-                  <div>Change Password</div>
+                  <nuxt-link to="/change-password">
+                    Change Password
+                  </nuxt-link>
                 </div>
               </el-dropdown-item>
             </el-menu-item>
