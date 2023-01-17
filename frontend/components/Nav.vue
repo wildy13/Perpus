@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/valid-template-root -->
 <template>
   <el-menu :default-active="activeIndex" @select="handleSelect">
-    <div class="flex  justify-between w-full  bg-slate-900">
+    <div class="flex z-50 left-0 top-0 justify-between w-full fixed bg-slate-900">
       <!-- mobile -->
       <div class="flex justify-center items-center ml-2 sm:hidden" x-data="{ open: false }">
         <div class="space-y-2" x-on:click="open = ! open">
