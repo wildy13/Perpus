@@ -1,5 +1,5 @@
 <template>
-  <Login />
+  <SignUp />
 </template>
 
 <script>

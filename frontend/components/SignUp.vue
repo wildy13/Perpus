@@ -1,74 +1,91 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <el-form
-    ref="form"
-    :model="form"
-    :rules="rules"
-    :hide-required-asterisk="true"
-    @submit.native.prevent="submitForm('form')"
-  >
-    <div class="flex">
-      <div>
-        <el-form-item prop="username" label="Username" :label-width="formLabelWidth">
-          <el-input
-            v-model="form.username"
-            label="Username"
-            placeholder="Username"
-          />
-        </el-form-item>
+  <div class="flex h-screen items-center bg-[#f1f5f9]">
+    <div class="m-auto w-full max-w-md space-y-8 rounded-3xl bg-white px-10 py-14 shadow-md">
+      <div class="text-[#409EFF] text-2xl font-sans text-center font-medium">
+        Perpustakaan Online
+      </div>
+      <div class="space-y-2">
+        <h1 class="text-4xl font-bold">
+          Sign Up
+        </h1>
+        <p>
+          Already have an account?
+          <a href="" class="text-[#0A87FB]">
+            <nuxt-link to="/">Sign In</nuxt-link>
+          </a>
+        </p>
       </div>
       <div>
-        <el-form-item prop="email" label="Email" :label-width="formLabelWidth">
-          <el-input v-model="form.email" placeholder="Email" />
-        </el-form-item>
-      </div>
-    </div>
-    <div class="flex">
-      <div>
-        <el-form-item prop="password" label="Password" :label-width="formLabelWidth">
-          <el-input
-            v-model="form.password"
-            show-password
-            placeholder="Password"
-          />
-        </el-form-item>
-      </div>
-      <div>
-        <el-form-item prop="confirmPassword" label="Confirm Password" :label-width="formLabelWidth">
-          <el-input
-            v-model="form.confirmPassword"
-            show-password
-            placeholder="Confirm Password"
-          />
-        </el-form-item>
-      </div>
-    </div>
-    <div>
-      <el-form-item prop="roleId" label="Role" :label-width="formLabelWidth">
-        <el-select
-          v-model="form.roleId"
-          placeholder="Role"
+        <el-form
+          ref="form"
+          action=""
+          class="space-y-4"
+          :model="form"
+          :rules="rules"
+          :hide-required-asterisk="true"
+          @submit.native.prevent="submitForm('form')"
         >
-          <el-option
-            v-for="item in selectDataRole"
-            :key="item.id"
-            :label="item.name"
-            :value="item.id"
-          />
-        </el-select>
-      </el-form-item>
+          <div>
+            <el-form-item prop="username" label="Username">
+              <el-input
+                v-model="form.username"
+                label="Username"
+                placeholder="Username"
+              />
+            </el-form-item>
+          </div>
+          <div>
+            <el-form-item prop="email" label="Email">
+              <el-input v-model="form.email" placeholder="Email" />
+            </el-form-item>
+          </div>
+          <div>
+            <el-form-item prop="password" label="Password">
+              <el-input
+                v-model="form.password"
+                show-password
+                placeholder="Password"
+              />
+            </el-form-item>
+          </div>
+          <div>
+            <el-form-item prop="confirmPassword" label="Confirm Password">
+              <el-input
+                v-model="form.confirmPassword"
+                show-password
+                placeholder="Confirm Password"
+              />
+            </el-form-item>
+          </div>
+          <div>
+            <el-form-item prop="roleId" label="Role">
+              <el-select
+                v-model="form.roleId"
+                placeholder="Role"
+              >
+                <el-option
+                  v-for="item in selectDataRole"
+                  :key="item.id"
+                  :label="item.name"
+                  :value="item.id"
+                />
+              </el-select>
+            </el-form-item>
+          </div>
+          <div>
+            <el-button
+              type="primary"
+              native-type="submit"
+              :loading="loading"
+              class="w-full"
+            >
+              Sign Up
+            </el-button>
+          </div>
+        </el-form>
+      </div>
     </div>
-    <div class="mt-12">
-      <el-button
-        type="primary"
-        native-type="submit"
-        :loading="loading"
-        class="w-full"
-      >
-        Save
-      </el-button>
-    </div>
-  </el-form>
+  </div>
 </template>
 
 <script>
