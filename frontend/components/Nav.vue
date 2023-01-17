@@ -64,13 +64,11 @@
             alt="Avatar"
           />
           <el-dropdown-menu slot="dropdown" class="bg-slate-900">
-            <el-menu-item index="my-profile">
+            <el-menu-item index="profile">
               <el-dropdown-item>
                 <div class="flex">
                   <i class="el-icon-user-solid justify-center items-center" />
-                  <nuxt-link to="/profile">
-                    My Profile
-                  </nuxt-link>
+                  <div>My Profile</div>
                 </div>
               </el-dropdown-item>
             </el-menu-item>
@@ -78,9 +76,7 @@
               <el-dropdown-item index="settings">
                 <div class="flex">
                   <i class="el-icon-s-tools justify-center items-center" />
-                  <nuxt-link to="/settings">
-                    Settings
-                  </nuxt-link>
+                  <div>Settings</div>
                 </div>
               </el-dropdown-item>
             </el-menu-item>
@@ -88,9 +84,7 @@
               <el-dropdown-item index="change-password">
                 <div class="flex">
                   <i class="el-icon-s-open justify-center items-center" />
-                  <nuxt-link to="/change-password">
-                    Change Password
-                  </nuxt-link>
+                  <div>Change Password</div>
                 </div>
               </el-dropdown-item>
             </el-menu-item>

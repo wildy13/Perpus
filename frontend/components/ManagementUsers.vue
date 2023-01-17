@@ -17,7 +17,7 @@
         <el-table-column type="index" label="No" />
         <el-table-column prop="image" label="Image">
           <template slot-scope="scope">
-            <img v-if="scope.row.image" :src="`uploads/${scope.row.image}`" class="rounded-full  w-12 h-12 mr-2 mt-1" />
+            <img v-if="scope.row.image" :src="`uploads/${scope.row.image}`" class="rounded-lg h-32 mr-2 mt-1" />
           </template>
         </el-table-column>
         <el-table-column prop="username" label="Name" />
@@ -44,7 +44,7 @@
               size="mini"
               @click="handleUpload(scope.row)"
             >
-              Upload
+              Upload Image
             </el-button>
           </template>
         </el-table-column>
