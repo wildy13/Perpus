@@ -1,0 +1,17 @@
+# Dependency directories
+backend/node_modules/ 
+frontend/node_modules/
+
+# Optional eslint cache
+backend/.eslintcache
+frontend/.eslintcache
+
+# nuxt.js build output
+frontend/.nuxt
+
+# Nuxt generate
+frontend/dist
+
+# dotenv environment variables file
+backend/.env
+frontend/.env
