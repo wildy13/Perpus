@@ -5,6 +5,11 @@
         Data User
       </div>
     </div>
+    <div class="ml-4">
+      <el-button icon="el-icon-delete" @click="handleDelete">
+        Delete
+      </el-button>
+    </div>
     <div class="mt-4">
       <el-table
         ref="multipleTable"
@@ -104,7 +109,7 @@
                 </el-form-item>
               </div>
               <div>
-                <el-form-item prop="roleId" label="Role" :label-width="formLabelWidth">
+                <el-form-item v-if="$auth.user.roleId===2" prop="roleId" label="Role" :label-width="formLabelWidth">
                   <el-select
                     v-model="formEdit.roleId"
                     placeholder="Role"
@@ -254,6 +259,30 @@ export default {
     handleEdit (payload) {
       this.formEdit = { ...payload }
     },
+    handleDelete () {
+      this.$confirm('Are you sure for delete this data?', 'Confirm', {
+        distinguishCancelAndClose: true,
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No'
+      })
+        .then(() => {
+          this.fetchDel(this.multipleSelection)
+          this.$message({
+            type: 'info',
+            message:
+              'Changes saved. Proceeding to a new route, Please refresh browser for New Data.'
+          })
+        })
+        .catch((action) => {
+          this.$message({
+            type: 'info',
+            message:
+              action === 'cancel'
+                ? 'Changes discarded. Proceeding to a new route.'
+                : 'Stay in the current route'
+          })
+        })
+    },
     handleSelectionChange (val) {
       this.multipleSelection = val
     },
@@ -278,30 +307,6 @@ export default {
 
       this.loadingImage = true
       return isLt2M
-    },
-    handleDelete () {
-      this.$confirm('Are you sure for delete this data?', 'Confirm', {
-        distinguishCancelAndClose: true,
-        confirmButtonText: 'Yes',
-        cancelButtonText: 'No'
-      })
-        .then(() => {
-          this.fetchDel(this.multipleSelection)
-          this.$message({
-            type: 'info',
-            message:
-              'Changes saved. Proceeding to a new route, Please refresh browser for New Data.'
-          })
-        })
-        .catch((action) => {
-          this.$message({
-            type: 'info',
-            message:
-              action === 'cancel'
-                ? 'Changes discarded. Proceeding to a new route.'
-                : 'Stay in the current route'
-          })
-        })
     },
     async editForm () {
       try {

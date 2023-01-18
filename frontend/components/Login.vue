@@ -10,6 +10,7 @@
           />
         </div>
         <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
+          <div class="text-center text-red-500">{{ error }}</div>
           <div class="text-3xl text-center mb-4 font-sans">
             Perpustakaan Online
           </div>
@@ -21,27 +22,24 @@
             label-position="top"
             @submit.native.prevent="submitForm('form')"
           >
-            <!-- Email input -->
             <div class="mb-6">
               <el-form-item>
-                <input
+                <el-input
                   v-model="form.username"
                   type="text"
-                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   placeholder="Username"
-                />
+                ></el-input>
               </el-form-item>
             </div>
 
-            <!-- Password input -->
             <div class="mb-6">
               <el-form-item>
-                <input
+                <el-input
                   v-model="form.password"
                   type="password"
-                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   placeholder="Password"
-                />
+                  show-password
+                ></el-input>
               </el-form-item>
             </div>
 
@@ -49,7 +47,7 @@
               <div class="form-group flex text-sm">
                 <div class="mx-4">
                   <div class="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out">
-                    <nuxt-link to="/SignUp">
+                    <nuxt-link to="/sign-up">
                       doesn't have account?
                     </nuxt-link>
                   </div>
@@ -113,17 +111,9 @@ export default {
           try {
             this.loading = true
             await this.$auth.loginWith('local', { data: this.form })
-          } catch ({ response: { data } }) {
-            if (data) {
-              this.$message({
-                title: 'error',
-                message: data,
-                type: 'error'
-              })
-            }
+          } catch (err) {
+            this.error = err.response.data
           }
-        } else {
-          return false
         }
       })
     }

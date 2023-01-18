@@ -1,3 +1,3 @@
 <template>
-  <ManagementUsers />
+  <ManagementRoles />
 </template>

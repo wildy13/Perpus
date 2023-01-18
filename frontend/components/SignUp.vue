@@ -9,6 +9,7 @@
           Sign Up
         </h1>
         <p>
+          {{ success }}
           Already have an account?
           <a href="" class="text-[#0A87FB]">
             <nuxt-link to="/">Sign In</nuxt-link>
@@ -58,21 +59,6 @@
             </el-form-item>
           </div>
           <div>
-            <el-form-item prop="roleId" label="Role">
-              <el-select
-                v-model="form.roleId"
-                placeholder="Role"
-              >
-                <el-option
-                  v-for="item in selectDataRole"
-                  :key="item.id"
-                  :label="item.name"
-                  :value="item.id"
-                />
-              </el-select>
-            </el-form-item>
-          </div>
-          <div>
             <el-button
               type="primary"
               native-type="submit"
@@ -103,24 +89,24 @@ export default {
       }
     }
     return {
-      formLabelWidth: '150px',
-      dialogVisible: false,
-      dialogVisible1: false,
       form: {
         username: '',
         email: '',
         password: '',
         confirmPassword: '',
-        roleId: ''
+        roleId: '1'
       },
+      options: [
+        {
+          value: 1,
+          label: 'Siswa'
+        },
+        {
+          value: 3,
+          label: 'Petugas'
+        }
+      ],
       activeIndex: '',
-      page: 1,
-      pageSize: 5,
-      pagerCount: 5,
-      pageSizes: [5, 10, 20, 50],
-      search: '',
-      filtered: [],
-      multipleSelection: [],
       rules: {
         username: [
           {
@@ -143,13 +129,6 @@ export default {
             trigger: 'blur'
           }
         ],
-        roleId: [
-          {
-            required: true,
-            message: 'This field is required',
-            trigger: 'blur'
-          }
-        ],
         confirmPassword: [{ validator: validatePassword, trigger: 'blur' }]
       },
       error: '',
@@ -158,31 +137,17 @@ export default {
   },
   computed: {
     ...mapState('users', ['loading']),
-    ...mapState('roles', ['loading']),
     ...mapState('logout', ['loading']),
     ...mapGetters({
       loading: ['users/getLoading'],
-      usersData: ['users/getUsers'],
-      selectDataRole: ['roles/getRoles']
-    }),
-    pageTableData () {
-      if (this.search) {
-        return this.miniSearch
-          .search(this.search, { prefix: true })
-          .slice(0, this.pageSize)
-      }
-      return this.usersData.slice(
-        this.pageSize * this.page - this.pageSize,
-        this.pageSize * this.page
-      )
-    }
+      usersData: ['users/getUsers']
+    })
   },
 
   async created () {
     if (process.browser) {
       try {
         await this.fetchUsers()
-        await this.fetchRoles()
       } catch (error) {
         this.$message({
           title: 'error',
@@ -200,39 +165,13 @@ export default {
       'fetchDel',
       'fetchEdit'
     ]),
-    ...mapActions('roles', ['fetchRoles']),
     handleEdit (payload) {
       this.formEdit = { ...payload }
-    },
-    handleDelete () {
-      this.$confirm('Are you sure for delete this data?', 'Confirm', {
-        distinguishCancelAndClose: true,
-        confirmButtonText: 'Yes',
-        cancelButtonText: 'No'
-      })
-        .then(() => {
-          this.fetchDel(this.multipleSelection)
-          this.$message({
-            type: 'info',
-            message:
-              'Changes saved. Proceeding to a new route, Please refresh browser for New Data.'
-          })
-        })
-        .catch((action) => {
-          this.$message({
-            type: 'info',
-            message:
-              action === 'cancel'
-                ? 'Changes discarded. Proceeding to a new route.'
-                : 'Stay in the current route'
-          })
-        })
     },
     submitForm (form) {
       this.$refs[form].validate(async (valid) => {
         if (valid) {
           try {
-            this.dialogVisible = true
             this.error = ''
             await this.createUser(this.form)
             this.$message({
@@ -240,7 +179,7 @@ export default {
               message: 'You did it',
               type: 'success'
             })
-            this.dialogVisible = false
+            this.$router.replace('/')
             return true
           } catch ({ response: { data } }) {
             this.error = data

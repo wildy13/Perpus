@@ -13,6 +13,7 @@
 .el-menu {
     --tw-bg-opacity: 1;
     background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+    display: flex;
 }
 
 .nav-menu.active {
@@ -51,4 +52,9 @@
   }
   .el-dialog {
     width: fit-content;
+  }
+
+  .el-input__inner {
+    height: 46px;
+    line-height: 46px;
   }
