@@ -58,3 +58,8 @@
     height: 46px;
     line-height: 46px;
   }
+
+  .el-avatar {
+    width: 124px;
+    height: 124px;
+  }

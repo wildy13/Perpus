@@ -18,13 +18,13 @@
                 </div>
               </div>
               <div class="flex mb-4">
-                <div class="w-[86px] mt-2 ml-2">
-                  <img :src="`uploads/${$auth.user.image}`" class="rounded-full" />
+                <div class="w-auto mt-2 ml-2">
+                  <el-avatar :src="`uploads/${$auth.user.image}`"></el-avatar>
                   <div class="text-center text-gray-700">
                     {{ $auth.user.username }}
                   </div>
                 </div>
-                <div class="flex text-gray-700 justify-center items-center">
+                <div class="container flex w-full text-gray-700 justify-center items-center">
                   <div class="mx-2">
                     <div class="text-center">
                       10K
