@@ -22,7 +22,9 @@
         <el-table-column type="index" label="No" />
         <el-table-column prop="image" label="Image">
           <template slot-scope="scope">
-            <img v-if="scope.row.image" :src="`uploads/${scope.row.image}`" class="rounded-lg h-32 mr-2 mt-1" />
+            <div class="photos">
+              <img v-if="scope.row.image" :src="`uploads/${scope.row.image}`" />
+            </div>
           </template>
         </el-table-column>
         <el-table-column prop="username" label="Name" />
@@ -332,3 +334,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .photos img{
+    width: 100%;
+    object-fit: contain;
+  }
+</style>
