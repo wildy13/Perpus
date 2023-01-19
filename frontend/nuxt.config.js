@@ -94,6 +94,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    publicPath: 'https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css',
     transpile: [/^element-ui/],
     postcss: {
       plugins: {

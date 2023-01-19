@@ -9,39 +9,19 @@
           <div class="w-8 h-0.5 bg-gray-600"></div>
           <div class="w-8 h-0.5 bg-gray-600"></div>
         </div>
-        <div x-show="open" class="absolute">
-          <div class="mt-[20px] -ml-[30px]  shadow-md  px-1 absolute h-screen bg-slate-900 w-[95vw]">
-            <div class="">
+        <div x-show="open" class="absolute ">
+          <div class="font-sans  mt-[19px] -ml-[30px]  shadow-md  px-1 absolute h-screen bg-slate-900 w-64">
+            <div>
               <div class=" border-b-2 border-gray-700">
                 <div class="text-center text-gray-700 font-sans font-medium p-5">
                   PERPUSTAKAAN ONLINE
                 </div>
               </div>
               <div class="flex mb-4">
-                <div class="w-auto mt-2 ml-2">
+                <div class="flex items-center w-full mt-2 ml-2">
                   <el-avatar :src="`uploads/${$auth.user.image}`"></el-avatar>
-                  <div class="text-center text-gray-700">
+                  <div class="text-gray-700 ml-2 text-center w-full">
                     {{ $auth.user.username }}
-                  </div>
-                </div>
-                <div class="container flex w-full text-gray-700 justify-center items-center">
-                  <div class="mx-2">
-                    <div class="text-center">
-                      10K
-                    </div>
-                    <div>Books</div>
-                  </div>
-                  <div class="mx-2">
-                    <div class="text-center">
-                      10K
-                    </div>
-                    <div>Following</div>
-                  </div>
-                  <div class="mx-2">
-                    <div class="text-center">
-                      10K
-                    </div>
-                    <div>Followers</div>
                   </div>
                 </div>
               </div>
@@ -54,30 +34,37 @@
                   <li class="ml-4">
                     <div v-if="$auth.user.roleId===2" class="flex">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-[20px]"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" /></svg>
-                      <a class="flex items-center text-sm py-4 px-3 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="/management-users" data-mdb-ripple="true" data-mdb-ripple-color="dark">Management Users</a>
+                      <a class="flex items-center text-sm py-4 px-3 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="/management-users" data-mdb-ripple="true" data-mdb-ripple-color="dark">Users Management</a>
                     </div>
                     <div v-else-if="$auth.user.roleId===3" class="flex">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-[20px]"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" /></svg>
-                      <a class="flex items-center text-sm py-4 px-3 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="/management-users" data-mdb-ripple="true" data-mdb-ripple-color="dark">Management Users</a>
+                      <a class="flex items-center text-sm py-4 px-3 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="/management-users" data-mdb-ripple="true" data-mdb-ripple-color="dark">Users Management</a>
                     </div>
                   </li>
                   <li class="ml-4">
                     <div v-if="$auth.user.roleId===3" class="flex">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-[20px]"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" /></svg>
-                      <a class="flex items-center text-sm py-4 px-3 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="/management-books" data-mdb-ripple="true" data-mdb-ripple-color="dark">Management Books</a>
+                      <a class="flex items-center text-sm py-4 px-3 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="/management-books" data-mdb-ripple="true" data-mdb-ripple-color="dark">Books Management</a>
                     </div>
                     <div v-if="$auth.user.roleId===2" class="flex">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-[20px]"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" /></svg>
-                      <a class="flex items-center text-sm py-4 px-3 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="/management-books" data-mdb-ripple="true" data-mdb-ripple-color="dark">Management Books</a>
+                      <a class="flex items-center text-sm py-4 px-3 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="/management-books" data-mdb-ripple="true" data-mdb-ripple-color="dark">Books Management</a>
                     </div>
                   </li>
                   <li v-if="$auth.user.roleId===2" class="flex ml-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-[20px]"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224 16c-6.7 0-10.8-2.8-15.5-6.1C201.9 5.4 194 0 176 0c-30.5 0-52 43.7-66 89.4C62.7 98.1 32 112.2 32 128c0 14.3 25 27.1 64.6 35.9c-.4 4-.6 8-.6 12.1c0 17 3.3 33.2 9.3 48H45.4C38 224 32 230 32 237.4c0 1.7 .3 3.4 1 5l38.8 96.9C28.2 371.8 0 423.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7c0-58.5-28.2-110.4-71.7-143L415 242.4c.6-1.6 1-3.3 1-5c0-7.4-6-13.4-13.4-13.4H342.7c6-14.8 9.3-31 9.3-48c0-4.1-.2-8.1-.6-12.1C391 155.1 416 142.3 416 128c0-15.8-30.7-29.9-78-38.6C324 43.7 302.5 0 272 0c-18 0-25.9 5.4-32.5 9.9c-4.7 3.3-8.8 6.1-15.5 6.1zm56 208H267.6c-16.5 0-31.1-10.6-36.3-26.2c-2.3-7-12.2-7-14.5 0c-5.2 15.6-19.9 26.2-36.3 26.2H168c-22.1 0-40-17.9-40-40V169.6c28.2 4.1 61 6.4 96 6.4s67.8-2.3 96-6.4V184c0 22.1-17.9 40-40 40zm-88 96l16 32L176 480 128 288l64 32zm128-32L272 480 240 352l16-32 64-32z" /></svg>
-                    <a class="flex items-center text-sm py-4 px-3 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="/management-roles" data-mdb-ripple="true" data-mdb-ripple-color="dark">Management Roles</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="w-[20px]"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224 256c-70.7 0-128-57.3-128-128S153.3 0 224 0s128 57.3 128 128s-57.3 128-128 128zm-45.7 48h91.4c11.8 0 23.4 1.2 34.5 3.3c-2.1 18.5 7.4 35.6 21.8 44.8c-16.6 10.6-26.7 31.6-20 53.3c4 12.9 9.4 25.5 16.4 37.6s15.2 23.1 24.4 33c15.7 16.9 39.6 18.4 57.2 8.7v.9c0 9.2 2.7 18.5 7.9 26.3H29.7C13.3 512 0 498.7 0 482.3C0 383.8 79.8 304 178.3 304zM436 218.2c0-7 4.5-13.3 11.3-14.8c10.5-2.4 21.5-3.7 32.7-3.7s22.2 1.3 32.7 3.7c6.8 1.5 11.3 7.8 11.3 14.8v30.6c7.9 3.4 15.4 7.7 22.3 12.8l24.9-14.3c6.1-3.5 13.7-2.7 18.5 2.4c7.6 8.1 14.3 17.2 20.1 27.2s10.3 20.4 13.5 31c2.1 6.7-1.1 13.7-7.2 17.2l-25 14.4c.4 4 .7 8.1 .7 12.3s-.2 8.2-.7 12.3l25 14.4c6.1 3.5 9.2 10.5 7.2 17.2c-3.3 10.6-7.8 21-13.5 31s-12.5 19.1-20.1 27.2c-4.8 5.1-12.5 5.9-18.5 2.4l-24.9-14.3c-6.9 5.1-14.3 9.4-22.3 12.8l0 30.6c0 7-4.5 13.3-11.3 14.8c-10.5 2.4-21.5 3.7-32.7 3.7s-22.2-1.3-32.7-3.7c-6.8-1.5-11.3-7.8-11.3-14.8V454.8c-8-3.4-15.6-7.7-22.5-12.9l-24.7 14.3c-6.1 3.5-13.7 2.7-18.5-2.4c-7.6-8.1-14.3-17.2-20.1-27.2s-10.3-20.4-13.5-31c-2.1-6.7 1.1-13.7 7.2-17.2l24.8-14.3c-.4-4.1-.7-8.2-.7-12.4s.2-8.3 .7-12.4L343.8 325c-6.1-3.5-9.2-10.5-7.2-17.2c3.3-10.6 7.7-21 13.5-31s12.5-19.1 20.1-27.2c4.8-5.1 12.4-5.9 18.5-2.4l24.8 14.3c6.9-5.1 14.5-9.4 22.5-12.9V218.2zm92.1 133.5c0-26.5-21.5-48-48.1-48s-48.1 21.5-48.1 48s21.5 48 48.1 48s48.1-21.5 48.1-48z" /></svg>
+                    <a class="flex items-center text-sm py-4 px-3 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="/management-roles" data-mdb-ripple="true" data-mdb-ripple-color="dark">Roles Management</a>
                   </li>
                 </ul>
               </div>
-              <div class="text-gray-700 w-[95vw] text-center absolute bottom-[60px]">
+              <div>
+                <div>
+                  <el-menu-item index="logout">
+                    Logout
+                  </el-menu-item>
+                </div>
+              </div>
+              <div class="text-gray-700  absolute bottom-[60px] w-full text-center">
                 <div>
                   <footer>&copy; Developed by <a href="https://wildy13.github.io/wildy">Wildy Johanes Simanjuntak</a></footer>
                 </div>
@@ -136,11 +123,7 @@
           </div>
         </el-menu-item>
         <el-dropdown>
-          <img
-            :src="`uploads/${$auth.user.image}`"
-            class="rounded-full w-12 h-12 mr-2 mt-1"
-            alt="Avatar"
-          />
+          <el-avatar :src="`uploads/${$auth.user.image}`" style="width: 52px; height: 52px;"></el-avatar>
           <el-dropdown-menu slot="dropdown" class="bg-slate-900">
             <el-menu-item index="profile">
               <el-dropdown-item>
@@ -173,7 +156,7 @@
               </el-dropdown-item>
             </el-menu-item>
             <el-menu-item index="logout">
-              <el-dropdown-item index="logout">
+              <el-dropdown-item>
                 <div> Logout</div>
               </el-dropdown-item>
             </el-menu-item>
